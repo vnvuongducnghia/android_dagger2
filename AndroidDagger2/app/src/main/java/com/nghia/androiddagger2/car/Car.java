@@ -1,4 +1,4 @@
-package com.nghia.androiddagger2;
+package com.nghia.androiddagger2.car;
 
 import android.util.Log;
 
@@ -19,7 +19,13 @@ public class Car {
         this.wheels = wheels;
     }
 
+    @Inject
+    public void enableRemote(Remote remote) {
+        remote.setListener(this);
+    }
+
     public void driver(){
+        engine.start();
         Log.d(TAG, "driver: ...");
     }
 }
